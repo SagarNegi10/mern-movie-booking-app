@@ -8,6 +8,11 @@ import MyBookings from './pages/MyBookings'
 import Favorite from './pages/Favorite'
 import { Toaster } from 'react-hot-toast'
 import Footer from './components/Footer'
+import Layout from './pages/admin/Layout'
+import Dashboard from './pages/admin/Dashboard'
+import AddShows from './pages/admin/AddShows'
+import ListShows from './pages/admin/ListShows'
+import Listbookings from './pages/admin/Listbookings'
 
 const App = () => {
   
@@ -24,6 +29,12 @@ const App = () => {
         <Route path='/movie/:id/:date' element={<SeatLayout/>}/>
         <Route path='/my-bookings' element={<MyBookings/>}/>
         <Route path='/favorite' element={<Favorite/>}/>
+        <Route path='/admin/*' element={<Layout/>}>
+          <Route index element={<Dashboard/>}/>
+          <Route path='add-shows' element={<AddShows/>}/>
+          <Route path='list-shows' element={<ListShows/>}/>
+          <Route path='list-bookings' element={<Listbookings/>}/>
+        </Route>
       </Routes>
       {!isAdminRoute && <Footer/>}
     </>
